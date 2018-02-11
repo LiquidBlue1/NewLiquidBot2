@@ -133,7 +133,7 @@ client.on("message", async message => {
       .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
   }
     if (command == "unmute") { // creates the command unmute
-        if (!message.member.roles.some(r=>["bot-admin"].includes(r.name)) ) return message.reply("Sorry, you do not have the permission to do this!"); // if author has no perms
+        if (!message.member.roles.some(r=>["Administrator"].includes(r.name)) ) return message.reply("Sorry, you do not have the permission to do this!"); // if author has no perms
         var unmutedmember = message.mentions.members.first(); // sets the mentioned user to the var kickedmember
         if (!unmutedmember) return message.reply("Please mention a valid member of this server!") // if there is no kickedmmeber var
         unmutedmember.removeRole(mutedrole) //if reason, kick
@@ -141,7 +141,7 @@ client.on("message", async message => {
         message.reply(`${unmutedmember.user} has been unmuted by ${message.author}!`); // sends a message saying he was kicked
     }
     if (command == "mute") { // creates the command mute
-        if (!message.member.roles.some(r=>["bot-admin"].includes(r.name)) ) return message.reply("Sorry, you do not have the permission to do this!"); // if author has no perms
+        if (!message.member.roles.some(r=>["Administrator"].includes(r.name)) ) return message.reply("Sorry, you do not have the permission to do this!"); // if author has no perms
         var mutedmember = message.mentions.members.first(); // sets the mentioned user to the var kickedmember
         if (!mutedmember) return message.reply("Please mention a valid member of this server!") // if there is no kickedmmeber var
         if (mutedmember.hasPermission("ADMINISTRATOR")) return message.reply("I cannot mute this member!") // if memebr is an admin
