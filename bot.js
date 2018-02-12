@@ -176,7 +176,5 @@ client.on("message", async message => {
         message.channel.send("You can do -help to see all of my commands! If you have any problems with the Discord server, you can contact an administrator! :smile:") // gives u info
     }
 
-});
-
 
 client.login(config.token);
