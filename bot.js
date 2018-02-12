@@ -170,8 +170,8 @@ const getDefaultChannel = async (guild) => {
     return guild.channels.get(guild.id)
 
   // Check for a "general" channel, which is often default chat
-  if(guild.channels.exists("name", "general"))
-    return guild.channels.find("name", "general");
+  if(guild.channels.exists("name", "#general"))
+    return guild.channels.find("name", "#general");
   // Now we get into the heavy stuff: first channel in order where the bot can speak
   // hold on to your hats!
   return guild.channels
