@@ -143,7 +143,7 @@ client.on("Status Ready 2", () => {
 
 client.on('message', msg => {
   if (msg.content === '-invite') {
-    msg.reply('Hi wanna invite me heres the link https://discordapp.com/oauth2/authorize?&client_id=412014940472213505&scope=bot&permissions=0 );
+    msg.reply('Hi wanna invite me heres the link https://discordapp.com/oauth2/authorize?&client_id=412014940472213505&scope=bot&permissions=0');
   }
 });
 client.login(config.token);
