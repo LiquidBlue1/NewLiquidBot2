@@ -134,18 +134,6 @@ client.on("message", async message => {
   }
 });
 
-  client.on('message', msg => {
-  if (msg.content === 'help') {
-    // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
-    // The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
-    msg.reply("Hi see you need my help ah? , dont worry i can show you some of my commands");
-    msg.reply("- ping , will show you your ping :ping_pong:  ");
-    msg.reply("- say , makes the bot say something and delete the message :robot: ");
-    msg.reply("- kick , This command must be limited to mods and admins. must have a role named Adminstrator to work ");
-    msg.reply("- soon will be mute and unmute :)");
-    msg.reply("- ban , This command must be limited to mods and admins. must have a role named Adminstrator to work ");
- });
-
 client.on("Status Ready", () => {
     client.user.setActivity({game: {name: "in Test Mode", type: 0}});
 });
