@@ -17,16 +17,19 @@ client.on("ready", () => {
   // Example of changing the bot's playing game to something useful. `client.user` is what the
   // docs refer to as the "ClientUser".
   client.user.setGame(`on ${client.guilds.size} servers`);
+});
 
 client.on("guildCreate", guild => {
   // This event triggers when the bot joins a guild.
   console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
-  client.user.setGame(`In test mode:)`);
+  client.user.setGame(`on ${client.guilds.size} servers`);
+});
 
 client.on("guildDelete", guild => {
   // this event triggers when the bot is removed from a guild.
   console.log(`I have been removed from: ${guild.name} (id: ${guild.id})`);
-  client.user.setGame(`Hi Thanks you that you invite me to ur server do -help for more me :)`);
+  client.user.setGame(`on ${client.guilds.size} servers`);
+});
 
 
 client.on("message", async message => {
@@ -128,6 +131,8 @@ client.on("message", async message => {
     const fetched = await message.channel.fetchMessages({count: deleteCount});
     message.channel.bulkDelete(fetched)
       .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
+  }
+});
   }
     if (command == "unmute") { // creates the command unmute
         if (!message.member.roles.some(r=>["Administrator"].includes(r.name)) ) return message.reply("Sorry, you do not have the permission to do this!"); // if author has no perms
