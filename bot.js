@@ -160,4 +160,8 @@ client.on("Status Ready", () => {
     client.user.setActivity({game: {name: "in Test Mode", type: 0}});
 });
 
+client.on("Status Ready 2", () => {
+    client.user.setGame("in Test Mode");
+});
+
 client.login(config.token);
