@@ -131,6 +131,7 @@ client.on("message", async message => {
     message.channel.bulkDelete(fetched)
       .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
   }
+});
 
 client.on("Status Ready", () => {
     client.user.setActivity({game: {name: "in Test Mode", type: 0}});
