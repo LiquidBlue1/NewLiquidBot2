@@ -22,13 +22,13 @@ client.on("ready", () => {
 client.on("guildCreate", guild => {
   // This event triggers when the bot joins a guild.
   console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
-  client.user.setGame(`on ${client.guilds.size} servers`);
+  client.user.setGame(`Working} servers`);
 });
 
 client.on("guildDelete", guild => {
   // this event triggers when the bot is removed from a guild.
   console.log(`I have been removed from: ${guild.name} (id: ${guild.id})`);
-  client.user.setGame(`on ${client.guilds.size} servers`);
+  client.user.setGame(`Working`);
 });
 
 
@@ -179,21 +179,12 @@ client.on("message", async message => {
 
 });
 
-client.on("guildMemberAdd", (member) => {
-  const guild = member.guild;
-  if (!newUsers[guild.id]) newUsers[guild.id] = new Discord.Collection();
-  newUsers[guild.id].set(member.id, member.user);
+client.on("guildMemberAdd", (guild, member) => {
+    client.createMessage(guild.defaultChannel.id, `Welcome to the server, ${member.user.mention}!`);
+})
 
-  if (newUsers[guild.id].size > 10) {
-    const userlist = newUsers[guild.id].map(u => u.toString()).join(" ");
-    guild.channels.get(guild.id).send("Welcome our new users!\n" + userlist);
-    newUsers[guild.id].clear();
-  }
-});
-
-client.on("guildMemberRemove", (member) => {
-  const guild = member.guild;
-  if (newUsers[guild.id].has(member.id)) newUsers.delete(member.id);
-});
-
+client.on('messageCreate', msg => {
+    if (msg.content.startsWith(client.user.mention))
+        msg.channel.createMessage('No.')
+})
 client.login(config.token);
