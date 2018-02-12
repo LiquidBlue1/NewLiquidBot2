@@ -22,13 +22,11 @@ client.on("guildCreate", guild => {
   // This event triggers when the bot joins a guild.
   console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
   client.user.setGame(`In test mode:)`);
-});
 
 client.on("guildDelete", guild => {
   // this event triggers when the bot is removed from a guild.
   console.log(`I have been removed from: ${guild.name} (id: ${guild.id})`);
   client.user.setGame(`Hi Thanks you that you invite me to ur server do -help for more me :)`);
-});
 
 
 client.on("message", async message => {
@@ -175,6 +173,7 @@ client.on("message", async message => {
     if (command == "info") { // creates the command *info
         message.channel.send("You can do -help to see all of my commands! If you have any problems with the Discord server, you can contact an administrator! :smile:") // gives u info
     }
-
+  
+});
 
 client.login(config.token);
