@@ -61,12 +61,12 @@ client.on("message", async message => {
     if(command === "help") {
     // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
     // The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
-    const m = await message.channel.send("Hi see you need my help ah? , dont worry i can show you some of my commands");
-    const m = await message.channel.send("- ping , will show you your ping :ping_pong:  ");
-    const m = await message.channel.send("- say , makes the bot say something and delete the message :robot: ");
-    const m = await message.channel.send("- kick , This command must be limited to mods and admins. must have a role named Adminstrator to work ");
-    const m = await message.channel.send("- soon will be mute and unmute :)");
-    const m = await message.channel.send("- ban , This command must be limited to mods and admins. must have a role named Adminstrator to work ");
+    const = await message.channel.send("Hi see you need my help ah? , dont worry i can show you some of my commands");
+    const = await message.channel.send("- ping , will show you your ping :ping_pong:  ");
+    const = await message.channel.send("- say , makes the bot say something and delete the message :robot: ");
+    const = await message.channel.send("- kick , This command must be limited to mods and admins. must have a role named Adminstrator to work ");
+    const = await message.channel.send("- soon will be mute and unmute :)");
+    const = await message.channel.send("- ban , This command must be limited to mods and admins. must have a role named Adminstrator to work ");
   }
 
   if(command === "say") {
