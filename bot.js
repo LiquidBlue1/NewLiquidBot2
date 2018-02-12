@@ -154,6 +154,8 @@ client.on("message", async message => {
         message.reply(`${mutedmember.user} has been muted by ${message.author} because: ${mutereason}`); // sends a message saying he was kicked
     }
   
+});
+
   client.on('message', msg => {
   if (msg.content === 'help') {
     // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
@@ -164,9 +166,7 @@ client.on("message", async message => {
     msg.reply("- kick , This command must be limited to mods and admins. must have a role named Adminstrator to work ");
     msg.reply("- soon will be mute and unmute :)");
     msg.reply("- ban , This command must be limited to mods and admins. must have a role named Adminstrator to work ");
-  }
-  
-});
+ });
 
 client.on("Status Ready", () => {
     client.user.setActivity({game: {name: "in Test Mode", type: 0}});
