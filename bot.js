@@ -153,6 +153,8 @@ client.on("message", async message => {
             .catch(error => message.reply(`Sorry ${message.author} I couldn't mute because of : ${error}`)); //if error, display error
         message.reply(`${mutedmember.user} has been muted by ${message.author} because: ${mutereason}`); // sends a message saying he was kicked
     }
+  
+});
       if (command == "help") { // creates a command *help
         var embedhelpmember = new Discord.RichEmbed() // sets a embed box to the variable embedhelpmember
             .setTitle("**List of Commands**\n") // sets the title to List of Commands
@@ -176,5 +178,5 @@ client.on("message", async message => {
     if (command == "info") { // creates the command *info
         message.channel.send("You can do -help to see all of my commands! If you have any problems with the Discord server, you can contact an administrator! :smile:") // gives u inf
   
-});
+
 client.login(config.token);
