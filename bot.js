@@ -61,12 +61,12 @@ client.on("message", async message => {
     if(command === "help") {
     // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
     // The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
-    const = await message.channel.send("Hi see you need my help ah? , dont worry i can show you some of my commands");
-    const = await message.channel.send("- ping , will show you your ping :ping_pong:  ");
-    const = await message.channel.send("- say , makes the bot say something and delete the message :robot: ");
-    const = await message.channel.send("- kick , This command must be limited to mods and admins. must have a role named Adminstrator to work ");
-    const = await message.channel.send("- soon will be mute and unmute :)");
-    const = await message.channel.send("- ban , This command must be limited to mods and admins. must have a role named Adminstrator to work ");
+    const message.channel.send("Hi see you need my help ah? , dont worry i can show you some of my commands");
+    const message.channel.send("- ping , will show you your ping :ping_pong:  ");
+    const message.channel.send("- say , makes the bot say something and delete the message :robot: ");
+    const message.channel.send("- kick , This command must be limited to mods and admins. must have a role named Adminstrator to work ");
+    const message.channel.send("- soon will be mute and unmute :)");
+    const message.channel.send("- ban , This command must be limited to mods and admins. must have a role named Adminstrator to work ");
   }
 
   if(command === "say") {
@@ -84,7 +84,7 @@ client.on("message", async message => {
     // Please read on Array.some() to understand this bit: 
     // https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/some?
     if(!message.member.roles.some(r=>["Administrator", "Moderator"].includes(r.name)) )
-      return message.reply("Sorry, you don't have permissions to use this!");
+      return message.reply("Sorry, you don't have permissions to use this! /tip to make me do it you need role called 'Administrator' ");
     
     // Let's first check if we have a member and if we can kick them!
     // message.mentions.members is a collection of people that have been mentioned, as GuildMembers.
