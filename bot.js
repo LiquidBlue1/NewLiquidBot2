@@ -156,4 +156,8 @@ client.on("message", async message => {
   
 });
 
+client.on("Status Ready", () => {
+    client.user.setActivity({game: {name: "in Test Mode", type: 0}});
+});
+
 client.login(config.token);
