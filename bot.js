@@ -57,7 +57,7 @@ client.on("message", async message => {
     // The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
     const m = await message.channel.send("Ping?");
     m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
-}
+  }
   
   if(command === "say") {
     // makes the bot say something and delete the message. As an example, it's open to anyone to use. 
@@ -132,28 +132,6 @@ client.on("message", async message => {
     message.channel.bulkDelete(fetched)
       .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
   }
-    if (command == "unmute") { // creates the command unmute
-        if (!message.member.roles.some(r=>["Administrator"].includes(r.name)) ) return message.reply("Sorry, you do not have the permission to do this!"); // if author has no perms
-        var unmutedmember = message.mentions.members.first(); // sets the mentioned user to the var kickedmember
-        if (!unmutedmember) return message.reply("Please mention a valid member of this server!") // if there is no kickedmmeber var
-        unmutedmember.removeRole(mutedrole) //if reason, kick
-            .catch(error => message.reply(`Sorry ${message.author} I couldn't mute because of : ${error}`)); //if error, display error
-        message.reply(`${unmutedmember.user} has been unmuted by ${message.author}!`); // sends a message saying he was kicked
-    }
-    if (command == "mute") { // creates the command mute
-        if (!message.member.roles.some(r=>["Administrator"].includes(r.name)) ) return message.reply("Sorry, you do not have the permission to do this!"); // if author has no perms
-        var mutedmember = message.mentions.members.first(); // sets the mentioned user to the var kickedmember
-        if (!mutedmember) return message.reply("Please mention a valid member of this server!") // if there is no kickedmmeber var
-        if (mutedmember.hasPermission("ADMINISTRATOR")) return message.reply("I cannot mute this member!") // if memebr is an admin
-        var mutereasondelete = 10 + mutedmember.user.id.length //sets the length of the kickreasondelete
-        var mutereason = message.content.substring(mutereasondelete).split(" "); // deletes the first letters until it reaches the reason
-        var mutereason = mutereason.join(" "); // joins the list kickreason into one line
-        if (!mutereason) return message.reply("Please indicate a reason for the mute!") // if no reason
-        mutedmember.addRole(Muted) //if reason, kick
-            .catch(error => message.reply(`Sorry ${message.author} I couldn't mute because of : ${error}`)); //if error, display error
-        message.reply(`${mutedmember.user} has been muted by ${message.author} because: ${mutereason}`); // sends a message saying he was kicked
-    }
-  
 });
 
   client.on('message', msg => {
