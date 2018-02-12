@@ -58,7 +58,9 @@ client.on("message", async message => {
     const m = await message.channel.send("Ping?");
     m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
 }
-  
+  });
+
+client.on('message', msg => {
   if (msg.content === 'help') {
     // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
     // The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
@@ -69,7 +71,8 @@ client.on("message", async message => {
     msg.reply("- soon will be mute and unmute :)");
     msg.reply("- ban , This command must be limited to mods and admins. must have a role named Adminstrator to work ");
   }
-
+client.on("message", async message => {
+  
   if(command === "say") {
     // makes the bot say something and delete the message. As an example, it's open to anyone to use. 
     // To get the "message" itself we join the `args` back into a string with spaces: 
