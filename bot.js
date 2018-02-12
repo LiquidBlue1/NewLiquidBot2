@@ -31,47 +31,6 @@ client.on("guildDelete", guild => {
   client.user.setGame(`on ${client.guilds.size} servers`);
 });
 
-client.on('message', msg => {
-  if (msg.content === 'help') {
-   }
-});
-
-client.on('message', msg => {
-  if (msg.content === 'help') {
-    msg.reply('Hi i see that you need my help , dont worry i will show you some commands to us me ;)');
-  }
-});
-
-client.on('message', msg => {
-  if (msg.content === 'help') {
-    msg.reply('-ping , **will show you you discord ping**');
-  }
-});
-
-client.on('message', msg => {
-  if (msg.content === 'help') {
-    msg.reply('-kick , **this command is only for users that have a role named "Administrator"**');
-  }
-});
-
-client.on('message', msg => {
-  if (msg.content === 'help') {
-    msg.reply('-ban , **this command is only for users that have a role named "Administrator**');
-  }
-});
-
-client.on('message', msg => {
-  if (msg.content === 'help') {
-    msg.reply('**soon mute and unmute commands;)**');
-  }
-});
-
-client.on('message', msg => {
-  if (msg.content === 'help') {
-    msg.reply('if you want to invite me heres _**the link**__ https://discordapp.com/oauth2/authorize?&client_id=412014940472213505&scope=bot&permissions=0 ;)');
-  }
-});
-
 client.on("message", async message => {
   // This event will run on every single message received, from any channel or DM.
   
