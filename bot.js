@@ -132,8 +132,6 @@ client.on("message", async message => {
     message.channel.bulkDelete(fetched)
       .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
   }
-});
-  }
     if (command == "unmute") { // creates the command unmute
         if (!message.member.roles.some(r=>["Administrator"].includes(r.name)) ) return message.reply("Sorry, you do not have the permission to do this!"); // if author has no perms
         var unmutedmember = message.mentions.members.first(); // sets the mentioned user to the var kickedmember
@@ -176,8 +174,7 @@ client.on("message", async message => {
     }
 
     if (command == "info") { // creates the command *info
-        message.channel.send("You can do -help to see all of my commands! If you have any problems with the Discord server, you can contact an administrator! :smile:") // gives u info
-    }
+        message.channel.send("You can do -help to see all of my commands! If you have any problems with the Discord server, you can contact an administrator! :smile:") // gives u inf
   
-
+});
 client.login(config.token);
