@@ -146,4 +146,16 @@ client.on('message', msg => {
     msg.reply('Hi wanna invite me heres the link https://discordapp.com/oauth2/authorize?&client_id=412014940472213505&scope=bot&permissions=0');
   }
 });
+
+client.on('message', msg => {
+  if (msg.content === '-help') {
+    msg.reply('*Hi I see you wanna my help ha?? , dont worry i got ya!*');
+    msg.reply('-c [number], **This command will clear the chat"ding**"');
+    msg.reply('-kick , **This command is only for users that have role by name "Administrator"**');
+    msg.reply('-ban , **This command is only for users that have role by name "Administrator"**');
+    msg.reply('-ping , **This command will show your ping in discord** ;)');
+    msg.reply('-invite , **If you want to invite me to your discord group this command will help you**');
+    msg.reply('__**soon mute and unmute commands**__');
+  }
+});
 client.login(config.token);
