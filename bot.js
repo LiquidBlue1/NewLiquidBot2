@@ -135,8 +135,8 @@ client.on("message", async message => {
 });
 
 client.on("message", function(message) {
-    if(message.content === "-help") {
-        client.reply(message, "**My current Commands** ```-about, -c , -ban , -kick , -ping ");
+    if(message.content === "help") {
+        msg.reply(message, "**My current Commands** ```-about, -c , -ban , -kick , -ping ");
     }
 });
 
