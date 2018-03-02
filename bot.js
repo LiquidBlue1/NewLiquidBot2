@@ -134,11 +134,25 @@ client.on("message", async message => {
 	
 });
 
-  client.user.setPresence({
-    status: 'online',
-    game: {
-      name: 'with your voice!',
-    },
-  });
+client.on("message", function(message){
+
+            if( message.content === "!my_avatar" ){
+
+        const usersAvatar = message.sender.avatarURL;
+
+        if(usersAvatar){
+            // user has an avatar
+
+            mybot.reply(message, "your avatar can be found at " + usersAvatar);
+
+        }else{
+            // user doesn't have an avatar
+
+            client.reply(message, "you don't have an avatar!");
+        }
+
+            }
+
+} );
 
 client.login(config.token);
