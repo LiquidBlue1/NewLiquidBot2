@@ -134,10 +134,10 @@ client.on("message", async message => {
 	
 });
 
-client.on("message", function(message) {
-    if (message.content === "-help") {
-      msg.reply("**My current Commands** ```-about, -c , -ban , -kick , -ping ```");
-    }
+client.on('message', msg => {
+  if (msg.content === '-help') {
+    msg.reply('**My current Commands** ```-about, -c , -ban , -kick , -ping ```');
+  }
 });
 
 client.login(config.token);
