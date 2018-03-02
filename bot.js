@@ -142,7 +142,7 @@ client.on('message', msg => {
 
 client.on('message', msg => {
   if (msg.content === '-about') {
-    msg.reply('**About Me!!** I was made by Liquid. Im a cute little bot who want to be bigger like other bots. i have a some commands that you can use me with. do **-help** ');
+    msg.reply('**About Me!!** ```I was made by Liquid. Im a cute little bot who want to be bigger like other bots. i have a some commands that you can use me with.``` do **-help** ');
   }
 });
 
