@@ -145,6 +145,42 @@ client.on('message', msg => {
   if (msg.content === '-invite') {
     msg.reply('Hi wanna invite me heres the link https://discordapp.com/oauth2/authorize?&client_id=412014940472213505&scope=bot&permissions=0');
   }
+  			if(content.split(' ')[0] == prefix+"mute") {
+				if (m.channel.permissionsOf(m.sender).hasPermission("manageMessages")) {
+				if(!m.mentions[0]) {
+					c.sendMessage(m.channel, "Missing User!");
+					return
+				}						
+					
+				mutedUser = m.mentions[0]
+				if(mutedUser == "<@"+userID+">") {
+				c.sendMessage(m,"You can't mute me, silly!")	
+				return}
+				c.sendMessage(m,"User Silenced!")
+				console.log(m.sender.name+" muted "+ mutedUser)
+				muteUser(mutedUser)
+				
+			}
+			else
+			{
+				c.reply(m.channel, "You dont have the right Permissions, sorry! ( expected manageMessages )");
+			}
+			return
+			}
+
+			
+			if(content.split(' ')[0] == prefix+"unmute") {
+				if (m.channel.permissionsOf(m.sender).hasPermission("manageMessages")) {
+				if(!m.mentions[0]) {
+					c.sendMessage(m.channel, "Missing User!");
+					return
+				}	
+				unmutedUser = m.mentions[0]
+				c.sendMessage(m,"User Unsilenced!")
+				console.log(m.sender.name+" unmuted "+ unmutedUser)
+				unmuteUser(unmutedUser)
+				
+			}
 });
 
 client.on('message', msg => {
