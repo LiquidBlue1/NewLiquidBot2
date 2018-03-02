@@ -134,25 +134,9 @@ client.on("message", async message => {
 	
 });
 
-client.on("message", function(message){
-
-            if( message.content === "!my_avatar" ){
-
-        const usersAvatar = message.sender.avatarURL;
-
-        if(usersAvatar){
-            // user has an avatar
-
-            mybot.reply(message, "your avatar can be found at " + usersAvatar);
-
-        }else{
-            // user doesn't have an avatar
-
-            client.reply(message, "you don't have an avatar!");
-        }
-
-            }
-
-} );
+client.on("message", function(message) {
+    if(message.content === "!help") {
+        client.reply(message, "**My current Commands** ```!about_bot, !live, !my_avatar, !twitch, !youtube, hype, cry```" );
+    }
 
 client.login(config.token);
