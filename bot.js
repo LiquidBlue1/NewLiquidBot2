@@ -116,7 +116,7 @@ client.on("message", async message => {
     message.reply(`${member.user.tag} has been banned by ${message.author.tag} because: ${reason}`);
   }
   
-  if(command === "c") {
+  if(command === "clear") {
     // This command removes all messages from all users in the channel, up to 100.
     
     // get the delete count, as an actual number.
@@ -136,7 +136,7 @@ client.on("message", async message => {
 
 client.on('message', msg => {
   if (msg.content === '-help') {
-    msg.reply('**My current Commands** ```-about, -c , -ban , -kick , -ping ```');
+    msg.reply('**My current Commands** ```-about, -clear , -ban , -kick , -ping ```');
   }
 });
 
