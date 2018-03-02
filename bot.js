@@ -134,24 +134,11 @@ client.on("message", async message => {
 	
 });
 
-client.on("Status Ready", () => {
-    client.user.setActivity({game: {name: "in Test Mode", type: 0}});
-});
+  client.user.setPresence({
+    status: 'online',
+    game: {
+      name: 'with your voice!',
+    },
+  });
 
-client.on("Status Ready 2", () => {
-    client.user.setGame("in Test Mode");
-	
-});
-
-client.on('message', msg => {
-  if (msg.content === '-help') {
-    msg.reply('*Hi I see you wanna my help ha?? , dont worry i got ya!*');
-    msg.reply('-c [number], **This command will clear the chat"ding**"');
-    msg.reply('-kick , **This command is only for users that have role by name "Administrator"**');
-    msg.reply('-ban , **This command is only for users that have role by name "Administrator"**');
-    msg.reply('-ping , **This command will show your ping in discord** ;)');
-    msg.reply('-invite , **If you want to invite me to your discord group this command will help you**');
-    msg.reply('__**soon mute and unmute commands**__');
-  }
-});
 client.login(config.token);
