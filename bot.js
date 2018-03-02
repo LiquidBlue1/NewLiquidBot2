@@ -135,8 +135,9 @@ client.on("message", async message => {
 });
 
 client.on("message", function(message) {
-    if(message.content === "!help") {
-        client.reply(message, "**My current Commands** ```!about_bot, !live, !my_avatar, !twitch, !youtube, hype, cry```" );
+    if(message.content === "-help") {
+        client.reply(message, "**My current Commands** ```-about, -c , -ban , -kick , -ping ");
     }
+});
 
 client.login(config.token);
