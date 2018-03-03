@@ -10,6 +10,8 @@ const client = new Discord.Client();
 const config = require("./config.json");
 // config.token contains the bot's token
 // config.prefix contains the message prefix.
+cpnst prefix = "-"
+
 
 client.on("ready", () => {
   // This event will run if the bot starts, and logs in, successfully.
@@ -132,7 +134,7 @@ client.on("message", async message => {
       .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
   }
 
-  if(command ==== "-mute"){
+  if(command === prefix + "mute"){
 
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Vous n'avez pas les droits pour muter un utilisateur !");
 
