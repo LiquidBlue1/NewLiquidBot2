@@ -152,7 +152,7 @@ client.on("message", async message => {
         message.guild.channels.forEach(async (channel, id) => {
           await channel.overwritePermissions(role, {
             SEND_MESSAGES: false,
-            ADD_REACTIONS: false
+            ADD_REACTIONS: false,
           });
         });
       } catch (e) {
