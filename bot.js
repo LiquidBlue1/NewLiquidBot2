@@ -10,7 +10,7 @@ const client = new Discord.Client();
 const config = require("./config.json");
 // config.token contains the bot's token
 // config.prefix contains the message prefix.
-const prefix = "-"
+var prefix = "-"
 
 
 client.on("ready", () => {
@@ -133,40 +133,6 @@ client.on("message", async message => {
     message.channel.bulkDelete(fetched)
       .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
   }
-
-  if(command === prefix + "mute"){
-
-    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Vous n'avez pas les droits pour muter un utilisateur !");
-
-    let toMute = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
-    if(!toMute) return message.channel.send("Please enter a user !");
-    let role = message.guild.roles.find(r => r.name === "Moved users");
-    if(!role){
-      try {
-        role = await message.guild.createRole({
-          name: "Moved users",
-          color:"#000000",
-          permissions:[]
-        });
-
-        message.guild.channels.forEach(async (channel, id) => {
-          await channel.overwritePermissions(role, {
-            SEND_MESSAGES: false,
-            ADD_REACTIONS: false,
-          });
-        });
-      } catch (e) {
-        console.log(e.stack)
-      }
-    }
-
-    if(toMute.roles.has(role.id)) return message.channel.send('This user is already mutated !');
-
-    await(toMute.addRole(role));
-    message.channel.send("I mutated it !");
-
-    return;
-  }
 	
 });
 
@@ -180,6 +146,44 @@ client.on('message', msg => {
   if (msg.content === '-about') {
     msg.reply('**About Me!!** ```I was made by Liquid. Im a cute little bot who want to be bigger like other bots. i have a some commands that you can use me with.``` do **-help** ');
   }
+});
+
+Bot.on("message", async message => {
+
+  if(command === prefix + "mute"){
+
+    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Vous n'avez pas les droits pour muter un utilisateur !");
+
+    let toMute = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
+    if(!toMute) return message.channel.send("Merci d'entrer un utilisateur !");
+    let role = message.guild.roles.find(r => r.name === "Utilisateurs mutés");
+    if(!role){
+      try {
+        role = await message.guild.createRole({
+          name: "Utilisateurs mutés",
+          color:"#000000",
+          permissions:[]
+        });
+
+        message.guild.channels.forEach(async (channel, id) => {
+          await channel.overwritePermissions(role, {
+            SEND_MESSAGES: false,
+            ADD_REACTIONS: false
+          });
+        });
+      } catch (e) {
+        console.log(e.stack)
+      }
+    }
+
+    if(toMute.roles.has(role.id)) return message.channel.send('Cet utilisateur est déjà muté !');
+
+    await(toMute.addRole(role));
+    message.channel.send("Je l'ai muté !");
+
+    return;
+  }
+
 });
 
 client.login(config.token);
