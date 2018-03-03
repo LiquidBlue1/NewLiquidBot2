@@ -10,7 +10,7 @@ const client = new Discord.Client();
 const config = require("./config.json");
 // config.token contains the bot's token
 // config.prefix contains the message prefix.
-cpnst prefix = "-"
+const prefix = "-"
 
 
 client.on("ready", () => {
