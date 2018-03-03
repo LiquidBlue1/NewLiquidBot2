@@ -148,7 +148,7 @@ client.on('message', msg => {
   }
 });
 
-Bot.on("message", async message => {
+client.on("message", async message => {
 
   if(command === prefix + "mute"){
 
@@ -160,7 +160,7 @@ Bot.on("message", async message => {
     if(!role){
       try {
         role = await message.guild.createRole({
-          name: "Utilisateurs mutés",
+          name: "MutedRole",
           color:"#000000",
           permissions:[]
         });
